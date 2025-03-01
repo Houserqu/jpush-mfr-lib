@@ -1,9 +1,28 @@
 plugins {
+    id 'com.android.library'
     id 'maven-publish'  // 使用 Maven 发布插件
 }
 
 group = 'com.github.Houserqu'  // 你的 GitHub 用户名或其他命名空间
 version = '2.0.0'  // 版本号
+
+android {
+    compileSdkVersion safeExtGet('compileSdkVersion', 34)
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
 
 repositories {
     mavenCentral()  // JitPack 会使用这个
