@@ -1,0 +1,12 @@
+rootProject.name = 'jpush-mfr-lib'
+
+repositories {
+    maven {
+        url 'https://jitpack.io'
+    }
+}
+
+dependencies {
+    implementation(name: 'com.heytap.msp_3.5.3', ext: 'aar')
+    implementation(name: 'HiPushSDK-8.0.12.307', ext: 'aar')
+}
