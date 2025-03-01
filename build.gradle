@@ -2,6 +2,10 @@ repositories {
     maven {
         url 'https://jitpack.io'
     }
+
+    flatDir {
+        dirs 'libs'  // 这里是存放 AAR 文件的目录
+    }
 }
 
 dependencies {
