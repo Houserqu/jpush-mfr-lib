@@ -1,6 +1,6 @@
 plugins {
     id 'com.android.library'
-    id 'android-maven'
+    id 'maven-publish'                      // 使用 Maven 发布插件
 }
 
 group = 'com.github.Houserqu'  // 你的 GitHub 用户名或其他命名空间
@@ -25,7 +25,9 @@ android {
 }
 
 repositories {
+    google()    
     mavenCentral()  // JitPack 会使用这个
+    jcenter()      // 备用仓库
 }
 
 dependencies {
