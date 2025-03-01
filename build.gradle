@@ -1,5 +1,6 @@
-apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
+group = 'com.github.Houserqu' // 必须对应GitHub账号，如mwping
+version = '1.9.0'
 
 repositories {
     flatDir {
