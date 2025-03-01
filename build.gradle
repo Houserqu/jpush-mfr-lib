@@ -1,9 +1,44 @@
-apply plugin: 'com.github.dcendents.android-maven'
-group = 'com.github.Houserqu' // 必须对应GitHub账号，如mwping
-version = '1.9.0'
+plugins {
+    id 'maven-publish'  // 使用 Maven 发布插件
+}
+
+group = 'com.github.Houserqu'  // 你的 GitHub 用户名或其他命名空间
+version = '2.0.0'  // 版本号
 
 repositories {
-    flatDir {
-        dirs 'libs'  // 指定 AAR 文件存放的目录
+    mavenCentral()  // JitPack 会使用这个
+}
+
+dependencies {
+    // 不需要额外的依赖项，只需要把 AAR 文件作为发布内容
+}
+
+task publishAar(type: Upload) {
+    // 发布 AAR 文件到 JitPack
+    repositories {
+        maven {
+            url = uri("https://jitpack.io")
+        }
+    }
+
+    configurations {
+        archives
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+
+            artifact file('libs/com.heytap.msp_3.5.3.aar')
+            artifact file('libs/HiPushSDK-8.0.12.307.aar')
+        }
+    }
+
+    repositories {
+        maven {
+            url = uri('https://jitpack.io')
+        }
     }
 }
