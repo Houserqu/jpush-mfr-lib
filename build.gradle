@@ -1,5 +1,3 @@
-rootProject.name = 'jpush-mfr-lib'
-
 repositories {
     maven {
         url 'https://jitpack.io'
